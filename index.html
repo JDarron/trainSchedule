@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        Train Predictions
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                Train Name
+                            </th>
+                            <th scope="col">
+                                Destination
+                            </th>
+                            <th scope="col">
+                                Frequency (min)
+                            </th>
+                            <th scope="col">
+                                Next Arrival (24hr)
+                            </th>
+                            <th scope="col">
+                                Minutes Away
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="train-table"></tbody>
+                </table>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-train">
+                    <img src="./assets/images/add.ico" alt="Add" height="20">
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="add-train" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            Add Train
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="train-form">
+                            <div class="form-group">
+                                <label for="train-name">
+                                    Train Name:
+                                </label>
+                                <input type="input" class="form-control" id="train-name" placeholder="Enter Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="train-destination">
+                                    Destination:
+                                </label>
+                                <input type="input" class="form-control" id="train-destination" placeholder="Add Destination">
+                            </div>
+                            <div class="form-group">
+                                <label for="train-firstTime">
+                                    First Train Time: (HH:MM - military time)
+                                </label>
+                                <input type="input" class="form-control" id="train-firstTime" placeholder="Enter First Train Time">
+                            </div>
+                            <div class="form-group">
+                                <label for="train-frequency">
+                                    Frequency:
+                                </label>
+                                <input type="input" class="form-control" id="train-frequency" placeholder="Add Frequency">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">
+                                    Close
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-lg submit">
+                                    Save
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="./assets/javascript/logic.js"></script>
+</body>
+
+</html>
