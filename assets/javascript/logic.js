@@ -44,24 +44,53 @@ $(document).ready(function () {
         return {
             nextArival: moment(nextTrain).format("HH:mm"),
             minutesAway: tMinutesTillTrain
-        }
+        };
+    };
+
+    const createDeleteButton = childId => {
+        const deleteBtn = $("<button>");
+        const deleteImg = $("<img>");
+        deleteImg.attr("src", "./assets/images/trash.ico");
+        deleteImg.attr("height", "20");
+        deleteBtn.html(deleteImg);
+        deleteBtn.addClass("btn btn-danger");
+        deleteBtn.attr("value", childId);
+        deleteBtn.attr("data-toggle", "modal");
+        deleteBtn.attr("data-target", "#delete-train");
+        return deleteBtn;
     };
 
     const appendTrainDataToTable = train => {
         for (var propertyName in train) {
             const convertedTrainTimes = convertTrainTime(train[propertyName]);
+            const deleteBtn = createDeleteButton(propertyName);
             const row = $("<tr>");
             const trainTableData = [
                 $("<td>").text(train[propertyName].name),
                 $("<td>").text(train[propertyName].destination),
                 $("<td>").text(train[propertyName].frequency),
                 $("<td>").text(convertedTrainTimes.nextArival),
-                $("<td>").text(convertedTrainTimes.minutesAway)
+                $("<td>").text(convertedTrainTimes.minutesAway),
+                $("<td>").html(deleteBtn)
             ];
             row.append(trainTableData);
             $(".train-table").append(row);
         };
     };
+
+    $(".delete").click(function () {
+        $('#delete-train').modal('hide');
+        db.child($(this).val()).remove();
+    });
+
+    $('#delete-train').on('show.bs.modal', e => {
+        const train = $(e.relatedTarget).val();
+        $(".delete").attr("value", train);
+    });
+
+    $('#add-train').on('show.bs.modal', () => {
+        $("#train-name").focus();
+    });
 
     const handleFirebaseValueChange = snap => {
         $(".train-table").empty();

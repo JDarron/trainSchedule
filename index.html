@@ -17,8 +17,11 @@
 
 <body>
     <div class="container">
-        <div class="card">
+        <div class="card back-shadow table-card">
             <div class="card-body">
+                <h3 class="text-center">
+                    Train Schedule
+                </h3>
                 <table class="table text-center">
                     <thead>
                         <tr>
@@ -37,13 +40,15 @@
                             <th scope="col">
                                 Minutes Away
                             </th>
+                            <th scope="col">
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-train">
+                                    <img src="./assets/images/add.ico" alt="Add" height="20">
+                                </button>
+                            </th>
                         </tr>
                     </thead>
                     <tbody class="train-table"></tbody>
                 </table>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-train">
-                    <img src="./assets/images/add.ico" alt="Add" height="20">
-                </button>
             </div>
         </div>
 
@@ -66,25 +71,25 @@
                                 <label for="train-name">
                                     Train Name:
                                 </label>
-                                <input type="input" class="form-control" id="train-name" placeholder="Enter Name">
+                                <input type="text" class="form-control" name="name" id="train-name" placeholder="Enter Name" autofocus>
                             </div>
                             <div class="form-group">
                                 <label for="train-destination">
                                     Destination:
                                 </label>
-                                <input type="input" class="form-control" id="train-destination" placeholder="Add Destination">
+                                <input type="text" class="form-control" id="train-destination" placeholder="Add Destination">
                             </div>
                             <div class="form-group">
                                 <label for="train-firstTime">
                                     First Train Time: (HH:MM - military time)
                                 </label>
-                                <input type="input" class="form-control" id="train-firstTime" placeholder="Enter First Train Time">
+                                <input type="text" class="form-control" id="train-firstTime" placeholder="Enter First Train Time">
                             </div>
                             <div class="form-group">
                                 <label for="train-frequency">
                                     Frequency:
                                 </label>
-                                <input type="input" class="form-control" id="train-frequency" placeholder="Add Frequency">
+                                <input type="text" class="form-control" id="train-frequency" placeholder="Add Frequency">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">
@@ -98,6 +103,39 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="delete-train" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">
+                            Trying to delete this?
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        Deleting this train will remove the route permanently, and in doing so will render it
+                        impossible to retrieve said route.
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Jk
+                        </button>
+                        <button type="button" class="btn btn-danger delete">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
