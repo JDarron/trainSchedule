@@ -78,24 +78,20 @@ $(document).ready(function () {
         };
     };
 
-    $(".delete").click(function () {
-        $('#delete-train').modal('hide');
-        db.child($(this).val()).remove();
-    });
-
     $('#delete-train').on('show.bs.modal', e => {
         const train = $(e.relatedTarget).val();
         $(".delete").attr("value", train);
-    });
-
-    $('#add-train').on('show.bs.modal', () => {
-        $("#train-name").focus();
     });
 
     const handleFirebaseValueChange = snap => {
         $(".train-table").empty();
         appendTrainDataToTable(snap.val());
     };
+
+    $(".delete").click(function () {
+        $('#delete-train').modal('hide');
+        db.child($(this).val()).remove();
+    });
 
     $(".submit").click(handleNewTrainSubmit);
 

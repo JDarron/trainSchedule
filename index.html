@@ -17,6 +17,7 @@
 
 <body>
     <div class="container">
+        <!-- TRAIN SCHEDULE CARD -->
         <div class="card back-shadow table-card">
             <div class="card-body">
                 <h3 class="text-center">
@@ -51,8 +52,8 @@
                 </table>
             </div>
         </div>
-
-        <!-- Modal -->
+    <!-- END TRAIN SCHEDULE CARD -->
+    <!-- ADD TRAIN MODAL -->
         <div class="modal fade" id="add-train" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -71,7 +72,7 @@
                                 <label for="train-name">
                                     Train Name:
                                 </label>
-                                <input type="text" class="form-control" name="name" id="train-name" placeholder="Enter Name" autofocus>
+                                <input type="text" class="form-control" name="name" id="train-name" placeholder="Enter Name">
                             </div>
                             <div class="form-group">
                                 <label for="train-destination">
@@ -92,7 +93,7 @@
                                 <input type="text" class="form-control" id="train-frequency" placeholder="Add Frequency">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">
+                                <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">
                                     Close
                                 </button>
                                 <button type="submit" class="btn btn-primary btn-lg submit">
@@ -104,11 +105,10 @@
                 </div>
             </div>
         </div>
-
-        <!-- Modal -->
+        <!-- END ADD TRAIN MODAL -->
+        <!-- DELETE TRAIN MODAL -->
         <div class="modal fade" id="delete-train" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
             aria-hidden="true">
-
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -119,15 +119,13 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-
                     <div class="modal-body">
                         Deleting this train will remove the route permanently, and in doing so will render it
                         impossible to retrieve said route.
                     </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                            Jk
+                            Cancel
                         </button>
                         <button type="button" class="btn btn-danger delete">
                             Delete
@@ -135,10 +133,10 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
+    <!-- END DELETE TRAIN MODAL -->
+    <!-- CDNS/LOGIC -->
     <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
